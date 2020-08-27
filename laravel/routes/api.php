@@ -14,10 +14,8 @@ use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 |
 */
 
-Route::namespace('Api\V1\Auth')->prefix('api/v1')->middleware('json.api')->group(function () {
-    Route::post('/login', function(Request $request) {
-        return Article::create($request->all);
-    });
+Route::namespace('Api\V1\Auth')->prefix('pms/api/v1')->middleware('json.api')->group(function () {
+    Route::post('/login', 'LoginController');
     Route::post('/register', 'RegisterController');
     Route::post('/logout', 'LogoutController')->middleware('auth:api');
     Route::post('/password-forgot', 'ForgotPasswordController');

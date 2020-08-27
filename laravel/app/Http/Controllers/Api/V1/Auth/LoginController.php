@@ -41,6 +41,7 @@ class LoginController extends JsonApiController
             ]);
 
             return json_decode((string) $response->getBody(), true);
+
         } catch (ClientException $e) {
             $error = json_decode($e->getResponse()->getBody()->getContents());
 
